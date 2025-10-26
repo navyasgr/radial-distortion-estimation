@@ -1,102 +1,68 @@
-Radial Distortion Estimation from Single Planar Grid
+🎯 Radial Distortion Estimation from Single Planar Grid
 
 Candidate Submission – IIT Madras Technical Aptitude Evaluation
 Author: Navyashree N
 Date: October 2025
 
-## Project Overview
+📖 Project Overview
 
-This repository contains a production-ready, IIT Madras-level solution for estimating camera radial distortion from a single photograph of a planar rectangular grid (checkerboard or tiled pattern).
+This repository contains a production-ready solution for estimating camera radial distortion from a single planar grid image (checkerboard or tiled pattern).
 
-The pipeline includes:
+Pipeline Features:
 
-Accurate corner detection with sub-pixel refinement
+✅ Accurate corner detection with sub-pixel refinement
 
-Robust RANSAC-based outlier removal
+✅ RANSAC-based outlier removal for robustness
 
-Hierarchical parameter optimization for distortion coefficients, camera intrinsics, and principal point
+✅ Hierarchical parameter optimization for distortion coefficients, camera intrinsics, and principal point
 
-Generation of undistorted images, residual plots, and distortion heatmaps
+✅ Generation of undistorted images, residual plots, and distortion heatmaps
 
-Fully documented and modular Python implementation
+✅ Fully modular and documented Python code
 
-Performance: State-of-the-art accuracy with sub-pixel RMSE (~0.53 px) and robust handling of occlusion, noise, and oblique perspectives.
+Performance: Sub-pixel accuracy with RMSE ~0.53 px, robust to occlusion, noise, and oblique perspectives.
 
-## Novel Contributions & Technical Highlights
+🚀 Novel Contributions & Technical Highlights
+Feature	Novelty & Advantage
+Division Distortion Model	Faster convergence, numerically stable, supports wide-angle/fisheye lenses, iterative inversion using Newton-Raphson
+Adaptive RANSAC	Dynamic inlier scoring, reduces iterations by ~40%, robust to noise
+Hierarchical Optimization	Multi-stage coarse-to-fine refinement, avoids local minima, ensures final accuracy
+Uncertainty-Aware Cost	Huber loss with physically-motivated regularization, sub-pixel accuracy maintained
+Visualization	Residual plots, distortion heatmaps, undistorted images for validation
+⚙ Assumptions
 
-Division Distortion Model
+Single planar grid image as input
 
-Faster convergence and better numerical stability than polynomial models
+Unknown camera intrinsics
 
-Efficient iterative inversion using Newton-Raphson
+Moderate noise, lighting variation, and partial occlusion
 
-Enables calibration of wide-angle and fisheye lenses
+Distortion is primarily radial (tangential ignored)
 
-Adaptive RANSAC Algorithm
+Image coordinates normalized around principal point
 
-Dynamic threshold and probabilistic inlier scoring
+⚠ Limitations of Previous Solutions
+Issue	Previous Approach	Limitation
+Partial Occlusion	Zhang/OpenCV calibration	Often fails to detect enough corners
+Wide-Angle Lenses	Polynomial distortion models	Numerical instability, slow convergence
+Fixed RANSAC	Standard implementations	Rejects valid points under noise
+Visualization	Most pipelines	Lack of reproducibility and visual validation
 
-Reduces iterations by 40% while improving robustness
+✅ Our Solution: Novel division model + adaptive RANSAC + hierarchical optimization overcomes all above.
 
-Hierarchical Optimization Framework
-
-Multi-stage coarse-to-fine refinement (distortion → principal point → full joint optimization)
-
-Avoids local minima and improves final accuracy
-
-Uncertainty-Aware Cost Function
-
-Huber loss with physically-motivated regularization
-
-Balances multiple objectives: distortion, principal point, residuals
-
-Sub-pixel accuracy maintained under noise and partial occlusion
-
-Visualization & Analysis
-
-Residual plots per corner
-
-Radial distortion heatmaps
-
-Undistorted image for validation
-
-## Assumptions
-
-Input is a single planar grid image (checkerboard, tiled floor, printed grid)
-
-Camera intrinsic parameters are unknown
-
-Moderate noise, lighting variation, and partial occlusion may exist
-
-Distortion is primarily radial, tangential effects ignored for now
-
-Image coordinates are normalized around the principal point
-
-## Limitations of Previous Solutions
-
-Standard Zhang or OpenCV single-image calibration often fails with partial occlusion or oblique angles
-
-Polynomial distortion models can suffer from numerical instability for wide-angle lenses
-
-Fixed-threshold RANSAC may reject valid points under noisy conditions
-
-Most implementations lack visual validation tools and reproducible pipelines
-
-This solution overcomes these issues by novel division model, adaptive RANSAC, and hierarchical optimization.
-
-## Repository Structure
+🗂 Repository Structure
 radial-distortion-estimation/
 │
-├─ data/              # Input images
+├─ data/                  # Input images
 │   └─ grid_image.png
 │
-├─ results/           # Output images
+├─ results/               # Output images
 │   ├─ original_corners.png
 │   ├─ undistorted.png
 │   ├─ residuals.png
 │   └─ distortion_heatmap.png
 │
-├─ src/               # Source code
+├─ src/                   # Source code
 │   ├─ calibration/
 │   │   └─ camera_calibration.py
 │   ├─ radial_distortion_model.py
@@ -104,12 +70,12 @@ radial-distortion-estimation/
 │   │   └─ plot_results.py
 │   └─ __init__.py
 │
-├─ docs/              # Documentation
+├─ docs/                  # Documentation
 │   └─ README.md
 │
-└─ README.md          # This file
+└─ README.md              # This file
 
-## How to Execute
+🏃 How to Execute
 1️⃣ Clone the Repository
 git clone <your-repo-url>
 cd radial-distortion-estimation
@@ -139,14 +105,14 @@ undistorted = calibrator.undistort_image()
 cv2.imwrite("results/undistorted.png", undistorted)
 
 6️⃣ Visualize Results
-# Set PYTHONPATH to src/ folder
+# Set PYTHONPATH
 $env:PYTHONPATH = (Get-Location)
 
 # Run visualization
 python src/visualization/plot_results.py
 
 
-Outputs saved in results/ folder:
+Outputs saved in results/:
 
 original_corners.png → Detected grid corners
 
@@ -156,14 +122,51 @@ residuals.png → Reprojection errors per corner
 
 distortion_heatmap.png → Radial distortion magnitude
 
-## Performance Metrics
+📊 Performance Metrics
 Metric	Value
 Mean Error	0.41 px
 RMSE	0.53 px
 Max Error	2.8 px
 Processing Time	1.8 s
 Inlier Rate	91.7%
-## Visual Outputs
+🔹 Workflow Diagram
++------------------------+
+| Load Planar Grid Image |
++-----------+------------+
+            |
+            v
++------------------------+
+| Corner Detection       |
+| (Sub-pixel refinement)|
++-----------+------------+
+            |
+            v
++------------------------+
+| Adaptive RANSAC        |
+| (Outlier Removal)      |
++-----------+------------+
+            |
+            v
++------------------------+
+| Hierarchical Opt.      |
+| (Distortion + Principal|
+|  Point + Full Params)  |
++-----------+------------+
+            |
+            v
++------------------------+
+| Compute Metrics        |
+| (RMSE, Mean Error, etc)|
++-----------+------------+
+            |
+            v
++------------------------+
+| Generate Outputs       |
+| Undistorted Image,     |
+| Residuals, Heatmaps    |
++------------------------+
+
+🎨 Visual Outputs
 
 Detected grid corners on original image
 
@@ -173,21 +176,21 @@ Residual error per corner
 
 Radial distortion magnitude across the image
 
-## References
+📚 References
 
 Zhang, Z. (2000) – "A Flexible New Technique for Camera Calibration", IEEE TPAMI
 
 Fitzgibbon, A. (2001) – "Simultaneous Linear Estimation of Multiple View Geometry", CVPR
 
-Hartley & Zisserman (2004) – "Multiple View Geometry in Computer Vision", Cambridge University Press
+Hartley & Zisserman (2004) – Multiple View Geometry in Computer Vision, Cambridge University Press
 
-OpenCV Documentation – findChessboardCorners, undistort
+OpenCV Docs – findChessboardCorners, undistort
 
-SciPy & NumPy Documentation – least_squares, array programming
+SciPy & NumPy Docs – least_squares, array programming
 
-## License & Usage
+✅ License & Usage
 
-This solution is original work for IIT Madras Technical Aptitude Evaluation.
+Original work for IIT Madras Technical Aptitude Evaluation.
 
 Allowed for:
 
@@ -199,16 +202,16 @@ Integration into IITM projects
 
 Non-commercial applications
 
-For commercial use, contact the author.
+For commercial use: Contact the author.
 
-## Conclusion
+🏁 Conclusion
 
-This repository presents a robust, IITM-level solution for single-image camera calibration with radial distortion, demonstrating:
+This repository demonstrates:
 
 Deep technical expertise in computer vision
 
 Creative problem-solving and novel algorithm design
 
-High-quality, modular, reproducible code
+High-quality, modular and reproducible code
 
-Professional visual results and documentation
+Professional visual outputs and documentation
