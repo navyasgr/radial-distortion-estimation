@@ -137,39 +137,26 @@ python src/visualization/plot_results.py
 ## 📚 References
 
 During the development of this project, the following research papers were referred to for designing a robust, single-image radial distortion calibration pipeline:
-
 López-Antequera, M., Marí, R., Gonzalez-Jimenez, J. – "Deep Single Image Camera Calibration with Radial Distortion"
-
 Introduced techniques for single-image calibration using deep learning and geometric constraints.
-
 Inspired the implementation of a robust corner detection and sub-pixel refinement method in our pipeline.
-
 Highlighted the importance of handling occlusions and noise in practical camera calibration.
 
 Wu, F., Wei, H., Wang, X. – "Correction of Image Radial Distortion Based on Division Model"
-
 Proposed the division distortion model, which offers better numerical stability compared to traditional polynomial models.
-
 Guided the design of our hierarchical optimization framework for estimating distortion coefficients.
-
 Enabled wide-angle and fisheye lens calibration in a computationally efficient manner.
 
 Zhang, Z. – "A Flexible New Technique for Camera Calibration", IEEE TPAMI, 2000
-
 Classic calibration approach using planar grids and multiple views.
-
 Provided a strong baseline for RANSAC-based outlier rejection and corner refinement.
-
 Illustrated limitations of traditional polynomial models for single-image calibration, motivating the adoption of a division distortion model in our solution.
 
 Key Takeaways Applied to This Project:
 
 Single-image calibration is feasible with robust corner detection and outlier handling.
-
 Division model improves stability for high-distortion lenses.
-
 Hierarchical optimization prevents local minima and improves accuracy.
-
 Incorporating these insights allowed this project to achieve state-of-the-art sub-pixel RMSE (~0.53 px) with visual validation.
 
 ## ⚖️ License & Usage
