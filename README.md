@@ -170,4 +170,4 @@ It is explicitly allowed for:
   - **Integration into IITM projects**
   - **Non-commercial applications**
 
-For commercial use, please contact the author.
+For commercial use, please contact the author. 
