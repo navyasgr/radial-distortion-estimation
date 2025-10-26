@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+env/
+*.egg-info
+
+# Results folder (generated images, logs)
+results/
+
+# IDE / Editor configs
+.vscode/
+.idea/
