@@ -6,7 +6,7 @@ env/
 *.egg-info
 
 # Results folder (generated images, logs)
-results/
+#results/
 
 # IDE / Editor configs
 .vscode/
