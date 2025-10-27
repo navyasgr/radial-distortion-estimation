@@ -102,7 +102,7 @@ cv2.imwrite("results/undistorted.png", undistorted)
 Use the provided script to generate all four key visualizations and analysis plots in the results/ folder.
 
 bash
-## Set PYTHONPATH to allow module imports
+## Set to allow module imports
 export PYTHONPATH=$PWD
 ## OR (for Windows PowerShell):
 ## $env:PYTHONPATH = (Get-Location)
