@@ -94,7 +94,33 @@ Inlier Rate (RANSAC)	92.4%
 Execution Time	1.7 seconds (Python 3.11, Intel i7)
 
  Sample Output Visualization
-Distorted Input	Undistorted Output
+## 🧠 Sample Output Visualizations
+
+### 📥 Input Image
+<img src="data/grid_image.png" width="400"/>
+
+---
+
+### 🧩 Detected Grid Corners
+<img src="results/corner_detection_output.png" width="400"/>
+
+---
+
+### 🔧 Original Corners
+<img src="results/original_corners.png" width="400"/>
+
+---
+
+### 🎯 Undistorted Output
+<img src="results/undistorted.png" width="400"/>
+
+---
+
+### 📉 Calibration and Residuals
+| Calibration Result | Residuals |
+|---------------------|-----------|
+| <img src="results/calibration_result.png" width="400"/> | <img src="results/residuals.png" width="400"/> |
+
 	
 
  Research Basis and Adaptation
