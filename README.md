@@ -19,16 +19,16 @@ This repository provides a *production-ready, state-of-the-art solution* for est
 
 -----
 
-## ✨ Novel Contributions & Technical Highlights (IITM-Level Solution)
+##  Novel Contributions & Technical Highlights (IITM-Level Solution)
 
 This framework overcomes the limitations of standard calibration methods (like OpenCV/Zhang) through a unique blend of robust computer vision algorithms and advanced optimization techniques.
 
 | Feature | Technical Advantage | Impact |
 | :--- | :--- | :--- |
-| *1️⃣ Division Distortion Model* | Faster convergence & superior numerical stability compared to traditional polynomial models. Employs *Newton-Raphson* for efficient iterative inversion. | Enables stable and accurate calibration for *wide-angle and fisheye lenses*. |
-| *2️⃣ Adaptive RANSAC Algorithm* | Dynamic inlier thresholding and probabilistic scoring replaces fixed-threshold limitations. | *$\approx 40\%$ reduction in iterations* while significantly improving robustness against noise, partial occlusion, and oblique angles. |
-| *3️⃣ Hierarchical Optimization* | Multi-stage coarse-to-fine refinement: Distortion $\rightarrow$ Principal Point $\rightarrow$ Full Joint Optimization. | *Avoids local minima, guarantees superior convergence, and ensures **state-of-the-art sub-pixel accuracy*. |
-| *4️⃣ Uncertainty-Aware Cost* | Utilizes *Huber Loss* with physically-motivated regularization on distortion and principal point. | Maintains high accuracy even under challenging conditions (noise, lighting variation, partial occlusion). |
+| *1️ Division Distortion Model* | Faster convergence & superior numerical stability compared to traditional polynomial models. Employs *Newton-Raphson* for efficient iterative inversion. | Enables stable and accurate calibration for *wide-angle and fisheye lenses*. |
+| *2️ Adaptive RANSAC Algorithm* | Dynamic inlier thresholding and probabilistic scoring replaces fixed-threshold limitations. | *$\approx 40\%$ reduction in iterations* while significantly improving robustness against noise, partial occlusion, and oblique angles. |
+| *3️ Hierarchical Optimization* | Multi-stage coarse-to-fine refinement: Distortion $\rightarrow$ Principal Point $\rightarrow$ Full Joint Optimization. | *Avoids local minima, guarantees superior convergence, and ensures **state-of-the-art sub-pixel accuracy*. |
+| *4️ Uncertainty-Aware Cost* | Utilizes *Huber Loss* with physically-motivated regularization on distortion and principal point. | Maintains high accuracy even under challenging conditions (noise, lighting variation, partial occlusion). |
 
 -----
 
@@ -59,9 +59,9 @@ radial-distortion-estimation/
 
 -----
 
-## 🛠️ Installation & Execution
+##  Installation & Execution
 
-### 1️⃣ Clone and Setup
+### 1️ Clone and Setup
 
 bash
 # Clone the repository
@@ -72,7 +72,7 @@ cd radial-distortion-estimation
 pip install numpy opencv-python scipy matplotlib
 
 
-### 2️⃣ Run Full Calibration Pipeline
+### 2️ Run Full Calibration Pipeline
 
 The core logic is executed by the DistortionCalibrator class, which handles corner detection, RANSAC, and hierarchical optimization.
 
@@ -97,7 +97,7 @@ undistorted = calibrator.undistort_image()
 cv2.imwrite("results/undistorted.png", undistorted)
 
 
-### 3️⃣ Visualize Results
+### 3️ Visualize Results
 
 Use the provided script to generate all four key visualizations and analysis plots in the results/ folder.
 
@@ -113,7 +113,7 @@ python src/visualization/plot_results.py
 
 -----
 
-## 📊 Performance Metrics
+##  Performance Metrics
 
 | Metric | Value |
 | :--- | :--- |
@@ -123,7 +123,7 @@ python src/visualization/plot_results.py
 | Processing Time | $1.8\text{ s}$ |
 | RANSAC Inlier Rate | $91.7\%$ |
 
-## 🖼️ Visual Proofs & Outputs  
+##  Visual Proofs & Outputs  
 
 ### 🔹 Input Image  
 <p align="center">
