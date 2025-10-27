@@ -146,23 +146,23 @@ python src/visualization/plot_results.py
 
 ----
 
-## 📚 References
+## References
 
 During the development of this project, I explored several research works to build a strong foundation for single-image radial distortion estimation. The key ideas and learnings from these papers helped me shape a more stable and accurate calibration approach.
 
-1️⃣ López-Antequera, M., Marí, R., Gonzalez-Jimenez, J. – “Deep Single Image Camera Calibration with Radial Distortion”
+1️. López-Antequera, M., Marí, R., Gonzalez-Jimenez, J. – “Deep Single Image Camera Calibration with Radial Distortion”
 This paper introduced the concept of performing camera calibration using only a single image by leveraging geometric cues and deep learning.
 It inspired me to focus on corner detection precision, sub-pixel refinement, and illumination handling — all of which were crucial for achieving reliable calibration in non-ideal lighting or occluded conditions.
 
-2️⃣ Wu, F., Wei, H., Wang, X. – “Correction of Image Radial Distortion Based on Division Model”
+2️. Wu, F., Wei, H., Wang, X. – “Correction of Image Radial Distortion Based on Division Model”
 From this study, I adopted the idea of the division distortion model, which proved to be numerically more stable than the traditional polynomial models.
 It guided me to implement a hierarchical optimization pipeline, improving both computational efficiency and accuracy — especially for wide-angle and fisheye lenses.
 
-3️⃣ Zhang, Z. – “A Flexible New Technique for Camera Calibration”, IEEE TPAMI, 2000
+3️. Zhang, Z. – “A Flexible New Technique for Camera Calibration”, IEEE TPAMI, 2000
 This classical paper laid the foundation for modern camera calibration methods using planar grids.
 Although it mainly relied on multiple views, its methodology for RANSAC-based outlier rejection, corner refinement, and error minimization provided a strong reference framework for this single-image adaptation.
 
-🔑 Core Takeaways Integrated into My Implementation
+ Core Takeaways Integrated into My Implementation
 
 Single-image calibration can be reliable when precise corner localization and robust outlier filtering are used.
 
@@ -172,7 +172,7 @@ Hierarchical optimization avoids local minima, resulting in faster and more cons
 
 Applying these research-driven techniques enabled my project to achieve state-of-the-art sub-pixel accuracy (≈0.53 px RMSE) — validated through visual and quantitative analysis on real-world data.
 
-## ⚖️ License & Usage
+##  License & Usage
 
 This is original work submitted for the *IIT Madras Technical Aptitude Evaluation*.
 
