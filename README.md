@@ -61,7 +61,7 @@ radial-distortion-estimation/
 
 ##  Installation & Execution
 
-### 1️ Clone and Setup
+## 1️ Clone and Setup
 
 bash
 # Clone the repository
@@ -72,7 +72,7 @@ cd radial-distortion-estimation
 pip install numpy opencv-python scipy matplotlib
 
 
-### 2️ Run Full Calibration Pipeline
+## 2️ Run Full Calibration Pipeline
 
 The core logic is executed by the DistortionCalibrator class, which handles corner detection, RANSAC, and hierarchical optimization.
 
