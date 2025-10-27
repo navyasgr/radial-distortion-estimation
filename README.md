@@ -122,13 +122,32 @@ python src/visualization/plot_results.py
 | Processing Time | $1.8\text{ s}$ |
 | RANSAC Inlier Rate | $91.7\%$ |
 
-## 🖼️ Visual Outputs
+## 🖼️ Visual Proofs & Outputs  
 
-| Detected Corners (original_corners.png) | Undistorted Image (undistorted.png) |
+### 🔹 Input Image  
+<p align="center">
+  <img src="data/grid_image.png" width="480"/>
+</p>  
+<p align="center"><i>Original grayscale grid image captured for radial distortion estimation.</i></p>  
+
+---
+
+### 🔹 Output Visualizations  
+
+| **Corner Detection** (`results/corner_detection_output.png`) | **Undistorted Image** (`results/undistorted.png`) |
 | :---: | :---: |
-| Grid corners with sub-pixel refinement. | Corrected image using calibrated parameters. |
-| *Residual Errors* (residuals.png) | *Distortion Heatmap* (distortion_heatmap.png) |
-| Reprojection errors per corner. | Radial distortion magnitude across the image. |
+| <img src="results/corner_detection_output.png" width="420"/> | <img src="results/undistorted.png" width="420"/> |
+| *Detected grid intersections after adaptive corner refinement.* | *Final undistorted image after distortion correction.* |
+
+| **Calibration Result** (`results/calibration_result.png`) | **Residual Errors** (`results/residuals.png`) |
+| :---: | :---: |
+| <img src="results/calibration_result.png" width="420"/> | <img src="results/residuals.png" width="420"/> |
+| *Optimized λ parameter visualization and fit quality.* | *Reprojection error map showing geometric accuracy.* |
+
+---
+
+### 📁 Folder Structure  
+
 
 -----
 
