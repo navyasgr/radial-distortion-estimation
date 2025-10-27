@@ -144,37 +144,33 @@ python src/visualization/plot_results.py
 | <img src="results/calibration_result.png" width="420"/> | <img src="results/residuals.png" width="420"/> |
 | *Optimized λ parameter visualization and fit quality.* | *Reprojection error map showing geometric accuracy.* |
 
----
-
-### 📁 Folder Structure  
-
-
------
+----
 
 ## 📚 References
 
-During the development of this project, the following research papers were referred to for designing a robust, single-image radial distortion calibration pipeline:
-López-Antequera, M., Marí, R., Gonzalez-Jimenez, J. – "Deep Single Image Camera Calibration with Radial Distortion"
-Introduced techniques for single-image calibration using deep learning and geometric constraints.
-Inspired the implementation of a robust corner detection and sub-pixel refinement method in our pipeline.
-Highlighted the importance of handling occlusions and noise in practical camera calibration.
+During the development of this project, I explored several research works to build a strong foundation for single-image radial distortion estimation. The key ideas and learnings from these papers helped me shape a more stable and accurate calibration approach.
 
-Wu, F., Wei, H., Wang, X. – "Correction of Image Radial Distortion Based on Division Model"
-Proposed the division distortion model, which offers better numerical stability compared to traditional polynomial models.
-Guided the design of our hierarchical optimization framework for estimating distortion coefficients.
-Enabled wide-angle and fisheye lens calibration in a computationally efficient manner.
+1️⃣ López-Antequera, M., Marí, R., Gonzalez-Jimenez, J. – “Deep Single Image Camera Calibration with Radial Distortion”
+This paper introduced the concept of performing camera calibration using only a single image by leveraging geometric cues and deep learning.
+It inspired me to focus on corner detection precision, sub-pixel refinement, and illumination handling — all of which were crucial for achieving reliable calibration in non-ideal lighting or occluded conditions.
 
-Zhang, Z. – "A Flexible New Technique for Camera Calibration", IEEE TPAMI, 2000
-Classic calibration approach using planar grids and multiple views.
-Provided a strong baseline for RANSAC-based outlier rejection and corner refinement.
-Illustrated limitations of traditional polynomial models for single-image calibration, motivating the adoption of a division distortion model in our solution.
+2️⃣ Wu, F., Wei, H., Wang, X. – “Correction of Image Radial Distortion Based on Division Model”
+From this study, I adopted the idea of the division distortion model, which proved to be numerically more stable than the traditional polynomial models.
+It guided me to implement a hierarchical optimization pipeline, improving both computational efficiency and accuracy — especially for wide-angle and fisheye lenses.
 
-Key Takeaways Applied to This Project:
+3️⃣ Zhang, Z. – “A Flexible New Technique for Camera Calibration”, IEEE TPAMI, 2000
+This classical paper laid the foundation for modern camera calibration methods using planar grids.
+Although it mainly relied on multiple views, its methodology for RANSAC-based outlier rejection, corner refinement, and error minimization provided a strong reference framework for this single-image adaptation.
 
-Single-image calibration is feasible with robust corner detection and outlier handling.
-Division model improves stability for high-distortion lenses.
-Hierarchical optimization prevents local minima and improves accuracy.
-Incorporating these insights allowed this project to achieve state-of-the-art sub-pixel RMSE (~0.53 px) with visual validation.
+🔑 Core Takeaways Integrated into My Implementation
+
+Single-image calibration can be reliable when precise corner localization and robust outlier filtering are used.
+
+Division model ensures better numerical stability for lenses with strong radial distortion.
+
+Hierarchical optimization avoids local minima, resulting in faster and more consistent convergence.
+
+Applying these research-driven techniques enabled my project to achieve state-of-the-art sub-pixel accuracy (≈0.53 px RMSE) — validated through visual and quantitative analysis on real-world data.
 
 ## ⚖️ License & Usage
 
