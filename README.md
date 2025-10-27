@@ -68,7 +68,7 @@ bash
 git clone <your-repo-url>
 cd radial-distortion-estimation
 
-# Install required Python dependencies
+## Install required Python dependencies
 pip install numpy opencv-python scipy matplotlib
 
 
@@ -80,19 +80,19 @@ python
 import cv2
 from src.calibration.camera_calibration import DistortionCalibrator
 
-# 1. Load planar grid image
+## 1. Load planar grid image
 image = cv2.imread("data/grid_image.png")
 
-# 2. Initialize and Run Full Calibration
+## 2. Initialize and Run Full Calibration
 calibrator = DistortionCalibrator(image)
 results = calibrator.calibrate()
 
-# 3. Print Results
+## 3. Print Results
 print(f"Distortion k1: {results['k1']:.6f}")
 print(f"Distortion k2: {results['k2']:.6f}")
 print(f"RMSE: {results['metrics']['rmse']:.2f} px")
 
-# 4. Generate and Save Undistorted Image
+## 4. Generate and Save Undistorted Image
 undistorted = calibrator.undistort_image()
 cv2.imwrite("results/undistorted.png", undistorted)
 
@@ -102,12 +102,12 @@ cv2.imwrite("results/undistorted.png", undistorted)
 Use the provided script to generate all four key visualizations and analysis plots in the results/ folder.
 
 bash
-# Set PYTHONPATH to allow module imports
+## Set PYTHONPATH to allow module imports
 export PYTHONPATH=$PWD
-# OR (for Windows PowerShell):
-# $env:PYTHONPATH = (Get-Location)
+## OR (for Windows PowerShell):
+## $env:PYTHONPATH = (Get-Location)
 
-# Run the visualization script
+## Run the visualization script
 python src/visualization/plot_results.py
 
 
