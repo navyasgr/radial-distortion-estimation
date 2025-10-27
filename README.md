@@ -92,7 +92,7 @@ print(f"Distortion k1: {results['k1']:.6f}")
 print(f"Distortion k2: {results['k2']:.6f}")
 print(f"RMSE: {results['metrics']['rmse']:.2f} px")
 
-## 4. Generate and Save Undistorted Image
+### 4.Generate and save undistorted image
 undistorted = calibrator.undistort_image()
 cv2.imwrite("results/undistorted.png", undistorted)
 
@@ -104,8 +104,6 @@ Use the provided script to generate all four key visualizations and analysis plo
 bash
 ## Set to allow module imports
 export PYTHONPATH=$PWD
-## OR (for Windows PowerShell):
-## $env:PYTHONPATH = (Get-Location)
 
 ## Run the visualization script
 python src/visualization/plot_results.py
