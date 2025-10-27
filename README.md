@@ -32,28 +32,28 @@ This framework overcomes the limitations of standard calibration methods (like O
 
 -----
 
-## ⚙️ Repository Structure
-
+##  Repository Structure
 
 radial-distortion-estimation/
 │
-├─ data/ # Input grid image(s)
-│ └─ grid_image.png
+├── data/                           # Input grid image(s)
+│   └── grid_image.png
 │
-├─ results/ # Generated output visualizations and corrected images
-│ ├─ original_corners.png   # Detected grid corners
-│ ├─ undistorted.png        # Corrected image
-│ ├─ residuals.png          # Reprojection errors plot
-│ └─ distortion_heatmap.png # Visual magnitude of radial distortion
+├── results/                        # Generated output visualizations and corrected images
+│   ├── original_corners.png         # Detected grid corners
+│   ├── undistorted.png              # Corrected image
+│   ├── residuals.png                # Reprojection errors plot
+│   └── distortion_heatmap.png       # Visual magnitude of radial distortion
 │
-├─ src/ # Core Source Code
-│ ├─ calibration/
-│ │ └─ camera_calibration.py # Main calibration logic (RANSAC, Optimization)
-│ ├─ radial_distortion_model.py # Division Model implementation
-│ └─ visualization/
-│ └─ plot_results.py # Scripts for generating visual outputs
+├── src/                            # Core Source Code
+│   ├── calibration/
+│   │   └── camera_calibration.py    # Main calibration logic (RANSAC, Optimization)
+│   ├── radial_distortion_model.py   # Division Model implementation
+│   └── visualization/
+│       └── plot_results.py          # Scripts for generating visual outputs
 │
-└─ README.md # This file
+└── README.md                        # Project documentation
+
 
 
 -----
