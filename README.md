@@ -33,7 +33,7 @@ This framework overcomes the limitations of standard calibration methods (like O
 -----
 
 ##  Repository Structure
-
+```
 radial-distortion-estimation/
 │
 ├── data/                           # Input grid image(s)
@@ -53,7 +53,7 @@ radial-distortion-estimation/
 │       └── plot_results.py          # Scripts for generating visual outputs
 │
 └── README.md                        # Project documentation
-
+```
 
 
 
