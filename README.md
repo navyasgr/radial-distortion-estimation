@@ -72,75 +72,66 @@ The intent was to make the method self-contained, reproducible, and robust under
 ---
 
 ##  Implementation Summary
-
-### Dependencies
+## ⚙️ Dependencies
+Install the required dependencies:
 ```bash
 pip install numpy opencv-python scipy matplotlib
-Execution
-bash
-Copy code
-python main.py --input data/grid_image.png --output results/undistorted.png
-Output
-results/undistorted.png: corrected image
 
-results/error_plot.png: residual geometric deviation
+## Execution
+Run the main script with input and output paths:
+python main.py --input data/grid_image.png --output results/undistorted.png
+
+Output Description
+File	Description
+results/undistorted.png	Corrected image after radial distortion removal
+results/error_plot.png	Residual geometric deviation visualization
 
 📈 Results Summary
 Metric	Observed Value
 Estimated Distortion Coefficient (λ)	-0.243 ± 0.015
 Mean Reprojection Error	0.46 px
-RMSE (sub-pixel accuracy)	0.52 px
+RMSE (Sub-pixel Accuracy)	0.52 px
 Inlier Rate (RANSAC)	92.4%
 Execution Time	1.7 seconds (Python 3.11, Intel i7)
-
- Sample Output Visualization
-## 🧠 Sample Output Visualizations
-
-### 📥 Input Image
+🧠 Sample Output Visualizations
+📥 Input Image
 <img src="data/grid_image.png" width="400"/>
-
----
-
-### 🧩 Detected Grid Corners
+🧩 Detected Grid Corners
 <img src="results/corner_detection_output.png" width="400"/>
-
----
-
-### 🔧 Original Corners
+🔧 Original Corners
 <img src="results/original_corners.png" width="400"/>
-
----
-
-### 🎯 Undistorted Output
+🎯 Undistorted Output
 <img src="results/undistorted.png" width="400"/>
+📉 Calibration and Residuals
+Calibration Result	Residuals
+<img src="results/calibration_result.png" width="400"/>	<img src="results/residuals.png" width="400"/>
 
----
+💡 These visualizations demonstrate the effectiveness of the proposed radial distortion estimation pipeline, showing accurate corner detection, model fitting, and distortion correction.
 
-### 📉 Calibration and Residuals
-| Calibration Result | Residuals |
-|---------------------|-----------|
-| <img src="results/calibration_result.png" width="400"/> | <img src="results/residuals.png" width="400"/> |
+📚 Research Basis and Adaptation
 
-	
-
- Research Basis and Adaptation
 My approach draws conceptual grounding from key literature but is independently implemented and adapted:
 
 Reference	Key Concept	My Adaptation
-Zhang, Z. (2000) – Flexible Camera Calibration	Grid-based calibration and line constraints.	Adapted single-image line constraints with no multi-view requirement.
-Wu et al. (2021) – Division Model for Radial Distortion	Division-based parameterization.	Simplified into a one-parameter optimization with geometric cost.
-López-Antequera et al. (2018) – Deep Single-Image Calibration	Single-image feasibility.	Replaced deep features with geometry-driven analytical optimization.
+Zhang, Z. (2000) – Flexible Camera Calibration	Grid-based calibration and line constraints	Adapted single-image line constraints with no multi-view requirement
+Wu et al. (2021) – Division Model for Radial Distortion	Division-based parameterization	Simplified into a one-parameter optimization with geometric cost
+López-Antequera et al. (2018) – Deep Single-Image Calibration	Single-image feasibility	Replaced deep features with geometry-driven analytical optimization
 
-All coding, formulation, and assumptions were derived independently for this problem.
+🧩 All coding, formulation, and assumptions were derived independently for this problem.
 
 🧭 Reflection and Insights
+
 This problem required inductive reasoning and analytical design — constructing a geometric pipeline purely from first principles and limited data.
+
 Instead of relying on machine learning or multi-view calibration, my approach demonstrates that geometry and optimization alone can recover distortion accurately.
 
 Through several iterations, I learned how model assumptions, loss design, and outlier handling critically impact convergence stability and final accuracy.
 
 ⚖️ License and Declaration
+
 This submission is entirely authored and implemented by Navyashree N as part of the IIT Madras Technical Aptitude & Problem-Solving Round 2025.
+
 No external code or pretrained models were used.
 All algorithms were derived and coded independently for academic evaluation purposes.
+
 
