@@ -64,7 +64,7 @@ radial-distortion-estimation/
 ## 1️ Clone and Setup
 
 bash
-# Clone the repository
+## Clone the repository
 git clone <your-repo-url>
 cd radial-distortion-estimation
 
