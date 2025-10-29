@@ -19,7 +19,7 @@ This repository provides a *production-ready, state-of-the-art solution* for est
 
 -----
 
-##  Novel Contributions & Technical Highlights (IITM-Level Solution)
+##  Novel Contributions & Technical Highlights 
 
 This framework overcomes the limitations of standard calibration methods (like OpenCV/Zhang) through a unique blend of robust computer vision algorithms and advanced optimization techniques.
 
