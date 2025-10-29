@@ -61,14 +61,13 @@ radial-distortion-estimation/
 
 ##  Installation & Execution
 
-## 1️ Clone and Setup
+### 1️ Clone and Setup
 
-bash
-## Clone the repository
+### Clone the repository
 git clone <your-repo-url>
 cd radial-distortion-estimation
 
-## Install required Python dependencies
+### Install required Python dependencies
 pip install numpy opencv-python scipy matplotlib
 
 
@@ -80,14 +79,14 @@ python
 import cv2
 from src.calibration.camera_calibration import DistortionCalibrator
 
-## 1. Load planar grid image
+### 1. Load planar grid image
 image = cv2.imread("data/grid_image.png")
 
-## 2. Initialize and Run Full Calibration
+### 2. Initialize and Run Full Calibration
 calibrator = DistortionCalibrator(image)
 results = calibrator.calibrate()
 
-## 3. Print Results
+### 3. Print Results
 print(f"Distortion k1: {results['k1']:.6f}")
 print(f"Distortion k2: {results['k2']:.6f}")
 print(f"RMSE: {results['metrics']['rmse']:.2f} px")
@@ -97,11 +96,11 @@ undistorted = calibrator.undistort_image()
 cv2.imwrite("results/undistorted.png", undistorted)
 
 
-### 3️ Visualize Results
+## 3️ Visualize Results
 
 Use the provided script to generate all four key visualizations and analysis plots in the results/ folder.
 
-bash
+
 ## Set to allow module imports
 export PYTHONPATH=$PWD
 
@@ -161,7 +160,7 @@ It guided me to implement a hierarchical optimization pipeline, improving both c
 This classical paper laid the foundation for modern camera calibration methods using planar grids.
 Although it mainly relied on multiple views, its methodology for RANSAC-based outlier rejection, corner refinement, and error minimization provided a strong reference framework for this single-image adaptation.
 
- Core Takeaways Integrated into My Implementation
+ ## Core Takeaways Integrated into My Implementation
 
 Single-image calibration can be reliable when precise corner localization and robust outlier filtering are used.
 
