@@ -71,7 +71,7 @@ cd radial-distortion-estimation
 pip install numpy opencv-python scipy matplotlib
 
 
-## 2️ Run Full Calibration Pipeline
+### 2️ Run Full Calibration Pipeline
 
 The core logic is executed by the DistortionCalibrator class, which handles corner detection, RANSAC, and hierarchical optimization.
 
@@ -96,15 +96,15 @@ undistorted = calibrator.undistort_image()
 cv2.imwrite("results/undistorted.png", undistorted)
 
 
-## 3️ Visualize Results
+### 3️ Visualize Results
 
 Use the provided script to generate all four key visualizations and analysis plots in the results/ folder.
 
 
-## Set to allow module imports
+### Set to allow module imports
 export PYTHONPATH=$PWD
 
-## Run the visualization script
+### Run the visualization script
 python src/visualization/plot_results.py
 
 
